@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Associação do Amor | Apoio às Pessoas com Câncer – Araxá/MG</title>
+<meta name="description" content="Associação do Amor em Apoio às Pessoas com Câncer. Acolhimento, campanhas, transparência e solidariedade em Araxá e região.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+:root{
+  --primary:#e63975;--primary-dark:#c2185b;--primary-light:#fce4ec;
+  --secondary:#00acc1;--secondary-dark:#00838f;--secondary-light:#e0f7fa;
+  --dark:#1e293b;--gray:#64748b;--light-gray:#f8fafc;--white:#fff;
+  --success:#10b981;--shadow-sm:0 2px 4px rgba(0,0,0,.05);
+  --shadow-md:0 10px 25px -5px rgba(0,0,0,.08),0 8px 10px -6px rgba(0,0,0,.04);
+  --radius:16px;--transition:all .3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--dark);background:var(--white);line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+
+header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);box-shadow:var(--shadow-sm);z-index:1000}
+.nav-container{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand-logo img{height:52px;width:auto;object-fit:contain}
+.nav-toggle{display:none;border:1px solid #e2e8f0;background:#fff;width:44px;height:44px;border-radius:12px;font-size:1.4rem;cursor:pointer}
+nav ul{display:flex;list-style:none;gap:.35rem 1rem;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--dark);font-weight:600;font-size:.92rem;padding:.5rem .75rem;border-radius:8px;transition:var(--transition)}
+nav a:hover{color:var(--primary);background:var(--primary-light)}
+.btn-nav-donate{background:var(--primary)!important;color:#fff!important;padding:.55rem 1.15rem!important;border-radius:50px!important}
+.btn-nav-donate:hover{background:var(--primary-dark)!important}
+
+.hero{background:linear-gradient(135deg,#fff1f5 0%,#e0f7fa 100%);padding:4.5rem 1.5rem;text-align:center}
+.hero-content{max-width:820px;margin:0 auto}
+.badge-hero{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--primary);padding:.4rem 1rem;border-radius:50px;font-size:.85rem;font-weight:700;margin-bottom:1.4rem;box-shadow:var(--shadow-sm)}
+.hero h1{font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;line-height:1.2;margin-bottom:1.15rem}
+.hero h1 span{color:var(--primary)}
+.hero p{font-size:1.1rem;color:var(--gray);margin-bottom:2rem}
+.hero-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.75rem;border-radius:50px;font-weight:700;text-decoration:none;transition:var(--transition);font-size:1rem;border:0;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(230,57,117,.35)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);color:#fff}
+.btn-secondary{background:#fff;color:var(--secondary-dark);border:2px solid var(--secondary)}
+.btn-secondary:hover{background:var(--secondary-light);transform:translateY(-2px)}
+.btn-sm{padding:.65rem 1.15rem;font-size:.9rem}
+
+section{padding:4.25rem 1.5rem}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;max-width:720px;margin:0 auto 2.75rem}
+.section-tag{font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--secondary-dark);margin-bottom:.5rem;display:block}
+.section-header h2{font-size:clamp(1.55rem,3vw,2.2rem);font-weight:800;margin-bottom:.7rem}
+.section-header p{color:var(--gray);font-size:1.05rem}
+
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+.about-card{background:#fff;padding:1.9rem 1.5rem;border-radius:var(--radius);box-shadow:var(--shadow-md);border-top:5px solid var(--primary);transition:var(--transition)}
+.about-card:hover{transform:translateY(-4px)}
+.about-card i{font-size:2.2rem;color:var(--primary);margin-bottom:.9rem;display:inline-block}
+.about-card h3{font-size:1.15rem;margin-bottom:.5rem}
+.about-card p{color:var(--gray);font-size:.95rem}
+
+.campaigns{background:var(--light-gray)}
+.campaign-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem}
+.campaign-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);transition:var(--transition);display:flex;flex-direction:column}
+.campaign-card:hover{transform:translateY(-4px)}
+.campaign-img{width:100%;height:210px;object-fit:cover;background:#f1f5f9}
+.campaign-body{padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:.7rem}
+.campaign-body h3{font-size:1.15rem}
+.campaign-body p{color:var(--gray);font-size:.95rem;flex:1}
+
+/* Destaque tampinhas */
+.tampinhas-destaque{margin-top:2rem;background:linear-gradient(135deg,#fff0f7 0%,#e8f8fc 100%);border:1px solid rgba(230,57,117,.12);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-md)}
+.tampinhas-grid{display:grid;grid-template-columns:1.15fr .85fr}
+.tampinhas-video{background:#0f172a;min-height:300px}
+.tampinhas-video video{width:100%;height:100%;min-height:300px;max-height:460px;object-fit:cover;display:block}
+.tampinhas-copy{padding:2rem 1.75rem;display:flex;flex-direction:column;justify-content:center}
+.tampinhas-copy .badge{display:inline-flex;align-items:center;gap:6px;background:var(--primary);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:12px;width:fit-content}
+.tampinhas-copy h3{font-size:1.55rem;margin-bottom:.75rem}
+.tampinhas-copy p{color:var(--gray);margin-bottom:.75rem}
+.tampinhas-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1rem 0}
+.tampinhas-stats div{background:#fff;border-radius:12px;padding:12px;text-align:center;border:1px solid rgba(0,0,0,.05)}
+.tampinhas-stats strong{display:block;font-size:1.2rem;color:var(--primary);font-weight:800}
+.tampinhas-stats span{font-size:.78rem;color:var(--gray);font-weight:600}
+.tampinhas-copy .hint{font-size:.88rem;color:var(--gray)}
+
+.remedio-destaque{margin-top:1.5rem;background:linear-gradient(135deg,#e0f7fa 0%,#fff0f7 100%);border:1px solid rgba(0,172,193,.18)}
+.remedio-destaque .badge{background:var(--secondary-dark)}
+.remedio-destaque .tampinhas-stats strong{color:var(--secondary-dark)}
+
+.osc-box{background:var(--light-gray);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.75rem}
+.osc-box h3{margin-bottom:1rem;font-size:1.15rem}
+.osc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.85rem}
+.osc-item span{display:block;font-size:.8rem;color:var(--gray);font-weight:600}
+.osc-item strong{font-size:.95rem}
+
+.transparency-card{background:#fff;border:1px solid #e2e8f0;border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden;margin-bottom:1.35rem}
+.transparency-header{background:linear-gradient(135deg,var(--secondary-dark),var(--secondary));color:#fff;padding:1.15rem 1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.transparency-header h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+.emenda-card .transparency-header{background:linear-gradient(135deg,#c2185b,#e63975)}
+.status-badge{background:var(--success);color:#fff;padding:.35rem .85rem;border-radius:50px;font-size:.76rem;font-weight:700;text-transform:uppercase}
+.transparency-body{padding:1.35rem 1.4rem}
+.info-table{width:100%;border-collapse:collapse;margin-bottom:1rem}
+.info-table th,.info-table td{padding:.8rem 1rem;text-align:left;border-bottom:1px solid #edf2f7;font-size:.95rem;vertical-align:top}
+.info-table th{width:32%;color:var(--gray);font-weight:600;background:#fafbfc}
+.info-table td{color:var(--dark);font-weight:500}
+.download-box{background:var(--secondary-light);border:1px dashed var(--secondary);border-radius:12px;padding:1rem 1.15rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.doc-info{display:flex;align-items:center;gap:.7rem}
+.doc-info i{font-size:1.7rem;color:var(--primary)}
+.doc-info strong{display:block;font-size:.92rem}
+.doc-info span{color:var(--gray);font-size:.8rem}
+
+.docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem}
+.doc-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.05rem 1.15rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;box-shadow:var(--shadow-sm)}
+.doc-card strong{display:block;font-size:.92rem}
+.doc-card span{font-size:.8rem;color:var(--gray)}
+
+.donation-section{background:linear-gradient(135deg,#1e293b,#0f172a);color:#fff;border-radius:var(--radius);padding:2.75rem 1.75rem;box-shadow:var(--shadow-md)}
+.donation-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.25rem;align-items:center}
+.donation-info h3{font-size:1.7rem;font-weight:800;margin-bottom:1rem;color:#ff80ab}
+.donation-info p{color:#cbd5e1;margin-bottom:1.15rem}
+.pix-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:1rem;border-radius:12px;margin-bottom:.9rem}
+.pix-box strong{color:#38bdf8;display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.25rem}
+.pix-box code{font-size:1.08rem;font-weight:700;color:#fff}
+.pix-qr-container{background:#fff;padding:1.35rem;border-radius:var(--radius);text-align:center;max-width:260px;margin:0 auto}
+.pix-qr-container img{width:100%;max-width:190px;margin:0 auto;border-radius:8px}
+.pix-qr-container p{color:var(--dark);font-size:.86rem;font-weight:700;margin-top:.7rem}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.15rem}
+.contact-card{background:#fff;border:1px solid #e2e8f0;border-radius:var(--radius);padding:1.4rem;box-shadow:var(--shadow-sm)}
+.contact-card i{font-size:1.7rem;color:var(--primary);margin-bottom:.7rem}
+.contact-card h3{font-size:1.02rem;margin-bottom:.35rem}
+.contact-card a{color:var(--secondary-dark);font-weight:700;text-decoration:none}
+.contact-card a:hover{color:var(--primary)}
+.contact-card p{color:var(--gray);font-size:.92rem}
+
+footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
+.footer-grid{max-width:1200px;margin:0 auto 2.25rem;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
+.footer-brand img{height:46px;margin-bottom:.75rem}
+.footer-brand h4{color:#fff;margin-bottom:.45rem}
+.footer-links h5{color:#fff;margin-bottom:.8rem}
+.footer-links ul{list-style:none}
+.footer-links li{margin-bottom:.4rem}
+.footer-links a{color:#94a3b8;text-decoration:none;font-size:.95rem}
+.footer-links a:hover{color:#fff}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.35rem;border-top:1px solid #1e293b;text-align:center;font-size:.85rem}
+
+.float-wa{position:fixed;right:16px;bottom:16px;z-index:90;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 8px 20px rgba(37,211,102,.4);text-decoration:none}
+.float-wa:hover{transform:scale(1.06)}
+
+
+.pack-bar a{background:#e63975;color:#fff;font-weight:800;text-decoration:none;padding:.55rem 1.1rem;border-radius:999px}
+
+@media(max-width:900px){
+  .donation-grid{grid-template-columns:1fr;text-align:center}
+  .tampinhas-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .info-table th{width:38%}
+}
+@media(max-width:768px){
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
+  nav{display:none;width:100%}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch}
+  nav a{display:block}
+  .info-table,.info-table tbody,.info-table tr,.info-table th,.info-table td{display:block;width:100%}
+  .info-table th{background:#f1f5f9;border-bottom:0;padding-bottom:.2rem}
+  .info-table td{padding-top:.2rem;padding-bottom:1rem}
+  .download-box{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <a href="/" class="brand-logo" data-route="/"><img src="logo-limpa.png" alt="Associação do Amor"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="/sobre" data-route="/sobre">Quem Somos</a></li>
+        <li><a href="/campanhas" data-route="/campanhas">Campanhas</a></li>
+        <li><a href="/transparencia" data-route="/transparencia">Transparência</a></li>
+        <li><a href="/contato" data-route="/contato">Contato</a></li>
+        <li><a href="/doar" data-route="/doar" class="btn-nav-donate"><i class="ph ph-heart"></i> Doar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="badge-hero"><i class="ph ph-heart-fill"></i> Juntos na luta contra o câncer</div>
+    <h1>Acolhendo e transformando vidas através do <span>Amor</span></h1>
+    <p>A Associação do Amor oferece acolhimento, assistência e solidariedade a pessoas com câncer e suas famílias em Araxá e região.</p>
+    <div class="hero-actions">
+      <a href="/doar" data-route="/doar" class="btn btn-primary"><i class="ph ph-hand-heart"></i> Quero ajudar</a>
+      <a href="/transparencia" data-route="/transparencia" class="btn btn-secondary"><i class="ph ph-file-text"></i> Portal de Transparência</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nossa missão</span>
+      <h2>O que fazemos pelos assistidos</h2>
+      <p>Fundada em 07/07/2014, a Associação do Amor atua no alívio de necessidades básicas durante o tratamento oncológico.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card"><i class="ph ph-first-aid-kit"></i><h3>Farmacinha do Amor</h3><p>Campanha Remédio Aberto: recebemos medicamentos abertos ou fechados, dentro da validade. Farmacêutico responsável: Silvio Tavares (voluntário).</p></div>
+      <div class="about-card"><i class="ph ph-basket"></i><h3>Segurança alimentar</h3><p>Distribuição de cestas básicas, leite e itens de higiene para famílias em tratamento.</p></div>
+      <div class="about-card"><i class="ph ph-palette"></i><h3>Artererapia e atividades</h3><p>Artererapia (terça sim, terça não) com a professora Izabhel Rufino, artesanato e canto.</p></div>
+      <div class="about-card"><i class="ph ph-house-line"></i><h3>Casa do Amor</h3><p>Espaço de apoio em Araxá/MG, na Rua Ângela Marques Torres, 100 – Centro.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="campanhas" class="campaigns">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Engajamento</span>
+      <h2>Campanhas e projetos</h2>
+      <p>Iniciativas que mobilizam a comunidade e geram recursos para a causa.</p>
+    </div>
+
+    <div class="tampinhas-destaque" id="campanha-tampinhas">
+      <div class="tampinhas-grid">
+        <div class="tampinhas-video">
+          <video controls playsinline preload="metadata" poster="fotos/tampinhas2.jpg" title="Reportagem MGTV — Campanha das Tampinhas">
+            <source src="videos/campanha-tampinhas-mgtv.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="tampinhas-copy">
+          <span class="badge">📺 Reportagem MGTV</span>
+          <h3>Campanha das Tampinhas</h3>
+          <p>O que muita gente joga no lixo faz a diferença na vida de quem está em tratamento. A associação arrecada tampinhas, vende para reciclagem e transforma o valor em suplementos alimentares.</p>
+          <div class="tampinhas-stats">
+            <div><strong>9 toneladas</strong><span>já arrecadadas</span></div>
+            <div><strong>174</strong><span>pacientes atendidos</span></div>
+          </div>
+          <p class="hint">Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tampinhas-destaque remedio-destaque" id="campanha-remedio-aberto">
+      <div class="tampinhas-grid">
+        <div class="tampinhas-video">
+          <video controls playsinline preload="metadata" poster="fotos/remedio-aberto-poster.jpg" title="Reportagem MGTV — Campanha Remédio Aberto">
+            <source src="videos/campanha-remedio-aberto-mgtv.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="tampinhas-copy">
+          <span class="badge">Reportagem MGTV</span>
+          <h3>Campanha Remédio Aberto</h3>
+          <p>Recebemos doações de medicamentos abertos ou fechados, dentro da validade, para a Farmacinha do Amor. Em vez de descartar, doe: o remédio passa por triagem e é repassado com prescrição médica.</p>
+          <div class="tampinhas-stats">
+            <div><strong>Farmacinha do Amor</strong><span>farmácia solidária</span></div>
+            <div><strong>Silvio Tavares</strong><span>farmacêutico voluntário</span></div>
+          </div>
+          <p class="hint">Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG. Ou ligue (34) 3661-5049.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="campaign-grid" style="margin-top:2rem">
+      <article class="campaign-card">
+        <img class="campaign-img" src="fotos/bazar-do-amor.png" alt="Bazar do Amor" onerror="this.src='fotos/bazar.jpg'">
+        <div class="campaign-body"><h3>Bazar do Amor</h3><p>Doações de roupas e itens em bom estado, com renda revertida à associação.</p></div>
+      </article>
+      <article class="campaign-card">
+        <img class="campaign-img" src="fotos/psicoterapia-elisa.png" alt="Psicoterapia">
+        <div class="campaign-body"><h3>Psicoterapia</h3><p>Apoio emocional com profissionais voluntários para pacientes e famílias.</p></div>
+      </article>
+      <article class="campaign-card">
+        <img class="campaign-img" src="fotos/terapia-grupo-sheila.png" alt="Terapia em grupo" onerror="this.src='fotos/terapia-grupo-sheila-01.jpg'">
+        <div class="campaign-body"><h3>Terapia em grupo</h3><p>Encontros de escuta e convivência para fortalecer quem está em tratamento.</p></div>
+      </article>
+      <article class="campaign-card">
+        <img class="campaign-img" src="fotos/doacao-medicamentos.png" alt="Doação de medicamentos">
+        <div class="campaign-body"><h3>Campanha Remédio Aberto</h3><p>Doações de medicamentos abertos ou fechados para a Farmacinha do Amor, com triagem e farmacêutico responsável.</p></div>
+      </article>
+      <article class="campaign-card">
+        <img class="campaign-img" src="fotos/agosto-branco.png" alt="Agosto Branco">
+        <div class="campaign-body"><h3>Agosto Branco</h3><p>Conscientização sobre o câncer de pulmão e promoção do cuidado com a saúde.</p></div>
+      </article>
+      <article class="campaign-card">
+        <img class="campaign-img" src="fotos/vendinha.jpg" alt="Vendinha do Amor">
+        <div class="campaign-body"><h3>Vendinha do Amor</h3><p>Iniciativa criada com apoio de parceria para angariar recursos aos assistidos.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="transparencia">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Padrão mínimo MINC/SEC 2026</span>
+      <h2>Transparência e parcerias</h2>
+      <p>Informações institucionais, parcerias formalizadas, prestação de contas e documentos oficiais.</p>
+    </div>
+
+    <div class="osc-box">
+      <h3>Identificação da OSC</h3>
+      <div class="osc-grid">
+        <div class="osc-item"><span>Nome</span><strong>Associação do Amor em Apoio às Pessoas com Câncer</strong></div>
+        <div class="osc-item"><span>Nome fantasia</span><strong>Associação do Amor</strong></div>
+        <div class="osc-item"><span>CNPJ</span><strong>20.977.541/0001-81</strong></div>
+        <div class="osc-item"><span>Fundação</span><strong>07/07/2014</strong></div>
+        <div class="osc-item"><span>Presidente</span><strong>Lúcia Helena Aparecida</strong></div>
+        <div class="osc-item"><span>Endereço</span><strong>Rua Ângela Marques Torres, 100 – Centro – Araxá/MG – CEP 38183-189</strong></div>
+      </div>
+    </div>
+
+    <div class="transparency-card">
+      <div class="transparency-header">
+        <h3><i class="ph ph-seal-check"></i> Termo de Fomento nº 065/2022</h3>
+        <span class="status-badge"><i class="ph ph-check-circle"></i> Prestação aprovada</span>
+      </div>
+      <div class="transparency-body">
+        <table class="info-table">
+          <tr><th>Órgão concedente</th><td>Prefeitura Municipal de Araxá</td></tr>
+          <tr><th>Período</th><td>Outubro de 2022 a janeiro de 2024</td></tr>
+          <tr><th>Valor</th><td><strong>R$ 100.000,00</strong></td></tr>
+          <tr><th>Objeto</th><td>Material de custeio: cestas básicas, leite, medicamentos, contas de energia/água e prestadores de serviço.</td></tr>
+          <tr><th>Resultado</th><td>Atendimento aos assistidos cadastrados. Objeto executado conforme previsto.</td></tr>
+        </table>
+        <div class="download-box">
+          <div class="doc-info"><i class="ph ph-file-pdf"></i><div><strong>Relatório de Execução — Termo 065/2022</strong><span>Documento oficial</span></div></div>
+          <a class="btn btn-primary btn-sm" href="documentos/relatorio-execucao-parceria-065-2022.pdf" target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Baixar PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="transparency-card">
+      <div class="transparency-header">
+        <h3><i class="ph ph-seal-check"></i> Termo de Fomento nº 064/2023</h3>
+        <span class="status-badge"><i class="ph ph-check-circle"></i> Prestação aprovada</span>
+      </div>
+      <div class="transparency-body">
+        <table class="info-table">
+          <tr><th>Órgão concedente</th><td>Prefeitura Municipal de Araxá</td></tr>
+          <tr><th>Período</th><td>Novembro de 2023 a abril de 2024</td></tr>
+          <tr><th>Valor</th><td><strong>R$ 50.000,00</strong></td></tr>
+          <tr><th>Objeto</th><td>Equipamentos e cobertura para oficinas de arte e música.</td></tr>
+          <tr><th>Resultado</th><td>Oficinas de arte, artesanato e aulas de canto. Objeto executado conforme previsto.</td></tr>
+        </table>
+        <div class="download-box">
+          <div class="doc-info"><i class="ph ph-file-pdf"></i><div><strong>Relatório de Execução — Termo 064/2023</strong><span>Documento oficial</span></div></div>
+          <a class="btn btn-primary btn-sm" href="documentos/relatorio-execucao-parceria-064-2023.pdf" target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Baixar PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="transparency-card">
+      <div class="transparency-header">
+        <h3><i class="ph ph-seal-check"></i> Termo de Fomento nº 059/2024</h3>
+        <span class="status-badge"><i class="ph ph-check-circle"></i> Prestação aprovada</span>
+      </div>
+      <div class="transparency-body">
+        <table class="info-table">
+          <tr><th>Órgão concedente</th><td>Prefeitura Municipal de Araxá</td></tr>
+          <tr><th>Período</th><td>Dezembro de 2024 a abril de 2025</td></tr>
+          <tr><th>Valor</th><td><strong>R$ 50.000,00</strong></td></tr>
+          <tr><th>Objeto</th><td>Compra de equipamentos — criação da Vendinha do Amor.</td></tr>
+          <tr><th>Resultado</th><td>Vendinha do Amor em funcionamento. Objeto executado conforme previsto.</td></tr>
+        </table>
+        <div class="download-box">
+          <div class="doc-info"><i class="ph ph-file-pdf"></i><div><strong>Relatório de Execução — Termo 059/2024</strong><span>Documento oficial</span></div></div>
+          <a class="btn btn-primary btn-sm" href="documentos/relatorio-execucao-parceria-059-2024.pdf" target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Baixar PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="transparency-card emenda-card">
+      <div class="transparency-header">
+        <h3><i class="ph ph-bank"></i> Bloco específico de emenda parlamentar</h3>
+        <span class="status-badge" style="background:#fff;color:#c2185b">Aguardando dados</span>
+      </div>
+      <div class="transparency-body">
+        <table class="info-table">
+          <tr><th>Parlamentar autor(a)</th><td>Aguardando dados (quando houver emenda parlamentar)</td></tr>
+          <tr><th>Modalidade</th><td>Individual / Bancada / Comissão</td></tr>
+          <tr><th>Valor da emenda</th><td>R$ —</td></tr>
+        </table>
+        <p style="color:var(--gray);font-size:.9rem;margin:0">Bloco obrigatório e destacado conforme padrão MINC/SEC 2026. As parcerias acima são Termos de Fomento com a Prefeitura de Araxá.</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:2.25rem;margin-bottom:1.25rem">
+      <h2 style="font-size:1.45rem">Documentos e certidões</h2>
+      <p>Arquivos institucionais e de regularidade disponíveis para consulta.</p>
+    </div>
+    <div class="docs-grid">
+      <div class="doc-card"><div><strong>Estatuto Social</strong><span>Documento institucional</span></div><a class="btn btn-secondary btn-sm" href="documentos/estatuto-social.pdf" target="_blank" rel="noopener">Abrir</a></div>
+      <div class="doc-card"><div><strong>Ata de Eleição e Posse</strong><span>12/05/2026</span></div><a class="btn btn-secondary btn-sm" href="documentos/ata-eleicao-diretoria-2026.pdf" target="_blank" rel="noopener">Abrir</a></div>
+      <div class="doc-card"><div><strong>CRF / FGTS</strong><span>Certidão de regularidade</span></div><a class="btn btn-secondary btn-sm" href="documentos/crf-fgts.pdf" target="_blank" rel="noopener">Abrir</a></div>
+      <div class="doc-card"><div><strong>CNDT Trabalhista</strong><span>Certidão negativa</span></div><a class="btn btn-secondary btn-sm" href="documentos/cndt-trabalhista.pdf" target="_blank" rel="noopener">Abrir</a></div>
+      <div class="doc-card"><div><strong>Certidão Estadual MG</strong><span>Débitos tributários</span></div><a class="btn btn-secondary btn-sm" href="documentos/cdt-estadual-mg.pdf" target="_blank" rel="noopener">Abrir</a></div>
+      <div class="doc-card"><div><strong>Certidão Municipal</strong><span>Prefeitura de Araxá</span></div><a class="btn btn-secondary btn-sm" href="documentos/certidao-municipal.jpg" target="_blank" rel="noopener">Abrir</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="doar">
+  <div class="container">
+    <div class="donation-section">
+      <div class="donation-grid">
+        <div class="donation-info">
+          <h3>Faça parte dessa corrente de amor</h3>
+          <p>Sua doação se transforma em alimentação, medicação e acolhimento para quem enfrenta o câncer.</p>
+          <div class="pix-box"><strong>Chave PIX (CNPJ)</strong><code>20.977.541/0001-81</code></div>
+          <div class="pix-box"><strong>Razão social</strong><span>Associação do Amor em Apoio às Pessoas com Câncer</span></div>
+          <button class="btn btn-primary" type="button" id="copyPix"><i class="ph ph-copy"></i> Copiar chave PIX</button>
+          <p style="font-size:.9rem;margin-top:1.15rem;color:#94a3b8"><i class="ph ph-map-pin"></i> Rua Ângela Marques Torres, 100 – Centro – Araxá/MG</p>
+        </div>
+        <div class="pix-qr-container">
+          <img src="pix-qr-code.png" alt="QR Code PIX Associação do Amor">
+          <p>Escaneie o QR Code no app do seu banco</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="background:var(--light-gray)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Fale conosco</span>
+      <h2>Contato</h2>
+      <p>Doações, voluntariado, parcerias ou informações sobre apoio.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <i class="ph ph-whatsapp-logo"></i>
+        <h3>WhatsApp</h3>
+        <a href="https://wa.me/5534988830559" target="_blank" rel="noopener">(34) 98883-0559</a>
+        <p>Doações, apoio e voluntariado</p>
+      </div>
+      <div class="contact-card">
+        <i class="ph ph-envelope-simple"></i>
+        <h3>E-mail</h3>
+        <a href="mailto:gestao@associacaodoamor.com.br">gestao@associacaodoamor.com.br</a>
+        <p>Atendimento institucional</p>
+      </div>
+      <div class="contact-card">
+        <i class="ph ph-map-pin"></i>
+        <h3>Endereço</h3>
+        <p>Rua Ângela Marques Torres, 100<br>Centro – Araxá/MG<br>CEP 38183-189</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo-limpa.png" alt="Associação do Amor">
+      <h4>Associação do Amor</h4>
+      <p>Entidade sem fins lucrativos dedicada a amparar pacientes oncológicos e suas famílias com acolhimento e dignidade.</p>
+      <p style="margin-top:.7rem;font-size:.85rem">CNPJ 20.977.541/0001-81 · Araxá/MG</p>
+    </div>
+    <div class="footer-links">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="/sobre" data-route="/sobre">Quem Somos</a></li>
+        <li><a href="/campanhas" data-route="/campanhas">Campanhas</a></li>
+        <li><a href="/transparencia" data-route="/transparencia">Transparência</a></li>
+        <li><a href="/doar" data-route="/doar">Doar</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Contato</h5>
+      <ul>
+        <li><a href="https://wa.me/5534988830559" target="_blank" rel="noopener">(34) 98883-0559</a></li>
+        <li><a href="mailto:gestao@associacaodoamor.com.br">gestao@associacaodoamor.com.br</a></li>
+        <li>Rua Ângela Marques Torres, 100</li>
+        <li>Centro – Araxá/MG</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Associação do Amor. Todos os direitos reservados.</p></div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5534988830559" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+
+<script>
+(function(){
+  var routes = {
+    '/':'inicio','/inicio':'inicio','/sobre':'sobre','/campanhas':'campanhas',
+    '/transparencia':'transparencia','/doar':'doar','/contato':'contato'
+  };
+  function pathFromId(id){ return id==='inicio' ? '/' : '/'+id; }
+  function go(id, push){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var path = pathFromId(id);
+    if(push) history.pushState({id:id}, '', path);
+    else history.replaceState({id:id}, '', path);
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+    var nav = document.getElementById('mainNav');
+    if(nav) nav.classList.remove('open');
+  }
+  document.querySelectorAll('a[data-route]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var route = this.getAttribute('data-route');
+      var id = routes[route] || routes[route.replace(/\/$/,'')];
+      if(!id) return;
+      e.preventDefault();
+      go(id, true);
+    });
+  });
+  window.addEventListener('popstate', function(e){
+    var id = (e.state && e.state.id) || routes[location.pathname.replace(/\/$/,'') || '/'] || 'inicio';
+    var el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.addEventListener('DOMContentLoaded', function(){
+    var id = 'inicio';
+    if(location.hash){
+      id = location.hash.replace('#','') || 'inicio';
+      if(id==='inicio'||id==='home') id='inicio';
+      history.replaceState({id:id}, '', pathFromId(id));
+    } else {
+      var p = location.pathname.replace(/\/$/,'') || '/';
+      id = routes[p] || 'inicio';
+      history.replaceState({id:id}, '', pathFromId(id));
+    }
+    if(id !== 'inicio'){
+      setTimeout(function(){ document.getElementById(id)?.scrollIntoView({behavior:'auto', block:'start'}); }, 40);
+    }
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if(toggle && nav) toggle.addEventListener('click', function(){ nav.classList.toggle('open'); });
+    var copyBtn = document.getElementById('copyPix');
+    if(copyBtn){
+      copyBtn.addEventListener('click', function(){
+        var key = '20977541000181';
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(key).then(function(){
+            copyBtn.innerHTML = '<i class="ph ph-check"></i> Copiado!';
+            setTimeout(function(){ copyBtn.innerHTML = '<i class="ph ph-copy"></i> Copiar chave PIX'; }, 1800);
+          }).catch(function(){ alert('Chave PIX: 20.977.541/0001-81'); });
+        } else {
+          alert('Chave PIX: 20.977.541/0001-81');
+        }
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
