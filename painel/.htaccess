@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(senha\.hash|config\.php)$">
+  Require all denied
+</FilesMatch>

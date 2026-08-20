@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "badge": "Juntos na luta contra o câncer",
+    "titulo_antes": "Acolhendo e transformando vidas através do",
+    "destaque": "Amor",
+    "texto": "Associação do Amor em Apoio às Pessoas com Câncer. Acolhimento, campanhas, transparência e solidariedade em Araxá e região."
+  },
+  "sobre": {
+    "tag": "Nossa missão",
+    "titulo": "O que fazemos pelos assistidos",
+    "texto": "Fundada em 07/07/2014, a Associação do Amor atua no alívio de necessidades básicas durante o tratamento oncológico.",
+    "cards": [
+      {
+        "titulo": "Farmacinha do Amor",
+        "texto": "Campanha Remédio Aberto: recebemos medicamentos abertos ou fechados, dentro da validade. Farmacêutico responsável: Silvio Tavares (voluntário)."
+      },
+      {
+        "titulo": "Segurança alimentar",
+        "texto": "Distribuição de cestas básicas, leite e itens de higiene para famílias em tratamento."
+      },
+      {
+        "titulo": "Artererapia e atividades",
+        "texto": "Artererapia (terça sim, terça não) com a professora Izabhel Rufino, artesanato e canto."
+      },
+      {
+        "titulo": "Casa do Amor",
+        "texto": "Espaço de apoio em Araxá/MG, na Rua Ângela Marques Torres, 100 – Centro."
+      }
+    ]
+  },
+  "tampinhas": {
+    "titulo": "Campanha das Tampinhas",
+    "texto": "O que muita gente joga no lixo faz a diferença na vida de quem está em tratamento. A associação arrecada tampinhas, vende para reciclagem e transforma o valor em suplementos alimentares.",
+    "stat1": "9 toneladas",
+    "stat1_label": "já arrecadadas",
+    "stat2": "174",
+    "stat2_label": "pacientes atendidos",
+    "hint": "Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG."
+  },
+  "remedio": {
+    "titulo": "Campanha Remédio Aberto",
+    "texto": "Recebemos doações de medicamentos abertos ou fechados, dentro da validade, para a Farmacinha do Amor. Em vez de descartar, doe: o remédio passa por triagem e é repassado com prescrição médica.",
+    "stat1": "Farmacinha do Amor",
+    "stat1_label": "farmácia solidária",
+    "stat2": "Silvio Tavares",
+    "stat2_label": "farmacêutico voluntário",
+    "hint": "Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG. Ou ligue (34) 3661-5049."
+  },
+  "osc": {
+    "nome": "Associação do Amor em Apoio às Pessoas com Câncer",
+    "fantasia": "Associação do Amor",
+    "cnpj": "20.977.541/0001-81",
+    "fundacao": "07/07/2014",
+    "presidente": "Lúcia Helena Aparecida",
+    "endereco": "Rua Ângela Marques Torres, 100 – Centro – Araxá/MG – CEP 38183-189"
+  },
+  "emenda": {
+    "status": "Aguardando dados",
+    "parlamentar": "Aguardando dados (quando houver emenda parlamentar)",
+    "modalidade": "Individual / Bancada / Comissão",
+    "valor": "R$ —"
+  },
+  "pix": {
+    "chave": "20.977.541/0001-81",
+    "nome": "Associação do Amor em Apoio às Pessoas com Câncer"
+  },
+  "contato": {
+    "whatsapp": "(34) 98883-0559",
+    "email": "gestao@associacaodoamor.com.br",
+    "endereco_l1": "Rua Ângela Marques Torres, 100",
+    "endereco_l2": "Centro – Araxá/MG",
+    "endereco_l3": "CEP 38183-189"
+  }
+}

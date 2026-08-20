@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel | Associação do Amor</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--p:#e63975;--pd:#c2185b;--ink:#1e293b;--muted:#64748b;--bg:#f8fafc;--line:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.wrap{max-width:860px;margin:0 auto;padding:28px 18px 80px}
+h1{font-size:1.55rem}
+h2{font-size:1.1rem;margin:1.6rem 0 .7rem;color:var(--pd)}
+p.lead{color:var(--muted);margin:.4rem 0 1.2rem}
+label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 6px}
+input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;background:#fff}
+textarea{min-height:88px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--p);color:#fff;border:0;border-radius:999px;padding:12px 20px;font-weight:800;cursor:pointer;font:inherit}
+.btn:hover{background:var(--pd)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(248,250,252,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0}
+.bar .inner{max-width:860px;margin:0 auto;padding:0 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ok{background:#ecfdf5;color:#047857;padding:10px 14px;border-radius:12px;margin:10px 0}
+.err{background:#fef2f2;color:#b91c1c;padding:10px 14px;border-radius:12px;margin:10px 0}
+.login{max-width:420px;margin:12vh auto;background:#fff;padding:32px 26px;border-radius:22px;box-shadow:0 16px 40px rgba(15,23,42,.08)}
+.login h1{margin-bottom:8px}
+.hidden{display:none}
+.up{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.up input[type=file]{padding:8px;flex:1}
+small{color:var(--muted);font-size:.8rem}
+@media(max-width:700px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="telaLogin" class="login">
+  <h1>Painel da Associação</h1>
+  <p class="lead">Entre com a senha para atualizar o site. Não precisa saber programar.</p>
+  <label for="senha">Senha</label>
+  <input id="senha" type="password" autocomplete="current-password">
+  <p id="loginErro" class="err hidden"></p>
+  <button class="btn" id="btnEntrar" style="margin-top:16px;width:100%;justify-content:center">Entrar</button>
+</div>
+
+<div id="app" class="hidden">
+  <div class="bar">
+    <div class="inner">
+      <strong>Painel · Associação do Amor</strong>
+      <div style="display:flex;gap:8px">
+        <a class="btn ghost" href="/" target="_blank" rel="noopener">Ver o site</a>
+        <button class="btn" id="btnSalvar">Salvar alterações</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p id="msg"></p>
+    <h1>Atualizar informações</h1>
+    <p class="lead">Mude o texto, clique em <strong>Salvar alterações</strong> e dê um refresh no site. Os documentos substituem o arquivo antigo.</p>
+
+    <div class="card">
+      <h2>Topo do site</h2>
+      <label>Frase pequena (selo)</label><input data-f="hero.badge">
+      <label>Título (antes da palavra em rosa)</label><input data-f="hero.titulo_antes">
+      <label>Palavra em destaque (rosa)</label><input data-f="hero.destaque">
+      <label>Texto de apoio</label><textarea data-f="hero.texto"></textarea>
+    </div>
+
+    <div class="card">
+      <h2>Quem somos</h2>
+      <label>Título</label><input data-f="sobre.titulo">
+      <label>Texto</label><textarea data-f="sobre.texto"></textarea>
+      <label>Card 1 · título / texto</label>
+      <div class="row"><input data-f="sobre.cards.0.titulo"><textarea data-f="sobre.cards.0.texto"></textarea></div>
+      <label>Card 2 · título / texto</label>
+      <div class="row"><input data-f="sobre.cards.1.titulo"><textarea data-f="sobre.cards.1.texto"></textarea></div>
+      <label>Card 3 · título / texto</label>
+      <div class="row"><input data-f="sobre.cards.2.titulo"><textarea data-f="sobre.cards.2.texto"></textarea></div>
+      <label>Card 4 · título / texto</label>
+      <div class="row"><input data-f="sobre.cards.3.titulo"><textarea data-f="sobre.cards.3.texto"></textarea></div>
+    </div>
+
+    <div class="card">
+      <h2>Campanha das Tampinhas</h2>
+      <label>Título</label><input data-f="tampinhas.titulo">
+      <label>Texto</label><textarea data-f="tampinhas.texto"></textarea>
+      <div class="row">
+        <div><label>Dado 1</label><input data-f="tampinhas.stat1"><input data-f="tampinhas.stat1_label" placeholder="legenda"></div>
+        <div><label>Dado 2</label><input data-f="tampinhas.stat2"><input data-f="tampinhas.stat2_label" placeholder="legenda"></div>
+      </div>
+      <label>Rodapé da campanha</label><input data-f="tampinhas.hint">
+    </div>
+
+    <div class="card">
+      <h2>Campanha Remédio Aberto</h2>
+      <label>Título</label><input data-f="remedio.titulo">
+      <label>Texto</label><textarea data-f="remedio.texto"></textarea>
+      <div class="row">
+        <div><label>Dado 1</label><input data-f="remedio.stat1"><input data-f="remedio.stat1_label" placeholder="legenda"></div>
+        <div><label>Dado 2</label><input data-f="remedio.stat2"><input data-f="remedio.stat2_label" placeholder="legenda"></div>
+      </div>
+      <label>Rodapé da campanha</label><input data-f="remedio.hint">
+    </div>
+
+    <div class="card">
+      <h2>Identificação da OSC</h2>
+      <label>Nome</label><input data-f="osc.nome">
+      <div class="row"><div><label>Nome fantasia</label><input data-f="osc.fantasia"></div><div><label>CNPJ</label><input data-f="osc.cnpj"></div></div>
+      <div class="row"><div><label>Fundação</label><input data-f="osc.fundacao"></div><div><label>Presidente</label><input data-f="osc.presidente"></div></div>
+      <label>Endereço</label><input data-f="osc.endereco">
+    </div>
+
+    <div class="card">
+      <h2>Emenda parlamentar</h2>
+      <p class="lead" style="margin-top:0">Preencha quando houver emenda. Enquanto isso, o site mostra “Aguardando dados”.</p>
+      <label>Status (ex.: Aguardando dados / Em execução / Prestação aprovada)</label><input data-f="emenda.status">
+      <label>Parlamentar autor(a)</label><input data-f="emenda.parlamentar">
+      <div class="row"><div><label>Modalidade</label><input data-f="emenda.modalidade"></div><div><label>Valor</label><input data-f="emenda.valor"></div></div>
+    </div>
+
+    <div class="card">
+      <h2>PIX e contato</h2>
+      <div class="row"><div><label>Chave PIX</label><input data-f="pix.chave"></div><div><label>Nome no PIX</label><input data-f="pix.nome"></div></div>
+      <div class="row"><div><label>WhatsApp</label><input data-f="contato.whatsapp"></div><div><label>E-mail</label><input data-f="contato.email"></div></div>
+      <label>Endereço (linha 1, 2 e 3)</label>
+      <input data-f="contato.endereco_l1">
+      <input data-f="contato.endereco_l2" style="margin-top:8px">
+      <input data-f="contato.endereco_l3" style="margin-top:8px">
+    </div>
+
+    <div class="card">
+      <h2>Trocar documentos (PDF / imagem)</h2>
+      <p class="lead" style="margin-top:0">O arquivo novo entra no lugar do antigo. O link do site não muda.</p>
+      <div id="uploads"></div>
+    </div>
+
+    <div class="card">
+      <h2>Trocar senha do painel</h2>
+      <label>Nova senha (mínimo 8 caracteres)</label>
+      <input id="novaSenha" type="password" autocomplete="new-password">
+      <button class="btn ghost" id="btnSenha" style="margin-top:12px">Atualizar senha</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = '/painel/api.php';
+let senha = '';
+let dados = null;
+
+function getPath(obj, path){
+  return path.split('.').reduce((a,k)=> (a==null? a : (/^\d+$/.test(k)? a[Number(k)] : a[k])), obj);
+}
+function setPath(obj, path, val){
+  const parts = path.split('.');
+  let cur = obj;
+  for(let i=0;i<parts.length-1;i++){
+    const k = /^\d+$/.test(parts[i]) ? Number(parts[i]) : parts[i];
+    if(cur[k]==null) cur[k] = /^\d+$/.test(parts[i+1]) ? [] : {};
+    cur = cur[k];
+  }
+  const last = parts[parts.length-1];
+  cur[/^\d+$/.test(last)?Number(last):last] = val;
+}
+function fill(){
+  document.querySelectorAll('[data-f]').forEach(el=>{
+    const v = getPath(dados, el.getAttribute('data-f'));
+    if(v!=null) el.value = v;
+  });
+}
+function collect(){
+  document.querySelectorAll('[data-f]').forEach(el=>{
+    setPath(dados, el.getAttribute('data-f'), el.value);
+  });
+}
+function msg(text, ok){
+  const el = document.getElementById('msg');
+  el.className = ok ? 'ok' : 'err';
+  el.textContent = text;
+}
+
+async function apiJSON(body){
+  const r = await fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+  const j = await r.json().catch(()=>({ok:false,erro:'Falha de comunicação'}));
+  if(!r.ok || !j.ok) throw new Error(j.erro || 'Erro');
+  return j;
+}
+
+document.getElementById('btnEntrar').onclick = async ()=>{
+  senha = document.getElementById('senha').value;
+  const err = document.getElementById('loginErro');
+  err.classList.add('hidden');
+  try{
+    const j = await apiJSON({acao:'login', senha});
+    dados = j.conteudo;
+    document.getElementById('telaLogin').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    fill();
+  }catch(e){
+    err.textContent = e.message;
+    err.classList.remove('hidden');
+  }
+};
+document.getElementById('senha').addEventListener('keydown', e=>{ if(e.key==='Enter') document.getElementById('btnEntrar').click(); });
+
+document.getElementById('btnSalvar').onclick = async ()=>{
+  collect();
+  try{
+    await apiJSON({acao:'salvar', senha, dados});
+    msg('Salvo. Abra o site e dê Ctrl + F5 para ver as mudanças.', true);
+  }catch(e){ msg(e.message, false); }
+};
+
+document.getElementById('btnSenha').onclick = async ()=>{
+  const nova = document.getElementById('novaSenha').value;
+  try{
+    await apiJSON({acao:'senha', senha, nova});
+    senha = nova;
+    msg('Senha atualizada. Guarde a nova senha com a diretoria.', true);
+  }catch(e){ msg(e.message, false); }
+};
+
+const destinos = [
+  ['estatuto','Estatuto Social (PDF)'],
+  ['ata','Ata de eleição (PDF)'],
+  ['crf','CRF / FGTS (PDF)'],
+  ['cndt','CNDT trabalhista (PDF)'],
+  ['estadual','Certidão estadual (PDF)'],
+  ['municipal','Certidão municipal (JPG ou PDF)'],
+  ['termo065','Termo de Fomento 065/2022 (PDF)'],
+  ['termo064','Termo de Fomento 064/2023 (PDF)'],
+  ['termo059','Termo de Fomento 059/2024 (PDF)'],
+  ['pix','QR Code PIX (PNG)'],
+];
+const box = document.getElementById('uploads');
+destinos.forEach(([key,label])=>{
+  const d = document.createElement('div');
+  d.style.margin='12px 0';
+  d.innerHTML = `<small>${label}</small><div class="up"><input type="file" data-dest="${key}"><button type="button" class="btn ghost" data-up="${key}">Enviar</button></div>`;
+  box.appendChild(d);
+});
+box.addEventListener('click', async (e)=>{
+  const btn = e.target.closest('[data-up]');
+  if(!btn) return;
+  const key = btn.getAttribute('data-up');
+  const input = box.querySelector(`input[data-dest="${key}"]`);
+  if(!input.files[0]){ msg('Escolha um arquivo primeiro.', false); return; }
+  const fd = new FormData();
+  fd.append('acao','upload');
+  fd.append('senha', senha);
+  fd.append('destino', key);
+  fd.append('arquivo', input.files[0]);
+  try{
+    const r = await fetch(API, {method:'POST', body: fd});
+    const j = await r.json();
+    if(!j.ok) throw new Error(j.erro||'Falha no envio');
+    msg('Arquivo enviado: '+j.arquivo, true);
+  }catch(err){ msg(err.message, false); }
+});
+</script>
+</body>
+</html>

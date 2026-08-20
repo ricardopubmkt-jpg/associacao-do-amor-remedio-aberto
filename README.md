@@ -1,9 +1,7 @@
-# Atualização — Campanha Remédio Aberto
+# Associação do Amor — site + painel
 
-Arquivo para enviar à Hostinger: **[update-remedio-aberto.zip](./update-remedio-aberto.zip)**
+- Site: `index.html`
+- Painel de atualização: pasta `painel/` (endereço `/painel`)
+- Conteúdo editável: `data/conteudo.json`
 
-1. Baixe o ZIP (botão acima ou em Code → Download ZIP, ou o arquivo `update-remedio-aberto.zip`)
-2. No File Manager da Hostinger, extraia **dentro de `public_html`**
-3. Confirme: `index.html` e `videos/campanha-remedio-aberto-mgtv.mp4`
-4. Não apague as pastas `fotos/`, `documentos/` e `videos/` que já existem
-5. Ctrl + F5 no site
+Na Hostinger, extraia dentro de `public_html`. A pasta `data/` precisa de permissão de escrita.

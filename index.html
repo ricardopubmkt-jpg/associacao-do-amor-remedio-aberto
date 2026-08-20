@@ -39,7 +39,7 @@ nav a:hover{color:var(--primary);background:var(--primary-light)}
 .hero-content{max-width:820px;margin:0 auto}
 .badge-hero{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--primary);padding:.4rem 1rem;border-radius:50px;font-size:.85rem;font-weight:700;margin-bottom:1.4rem;box-shadow:var(--shadow-sm)}
 .hero h1{font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;line-height:1.2;margin-bottom:1.15rem}
-.hero h1 span{color:var(--primary)}
+.hero h1 span[data-k="hero.destaque"]{color:var(--primary)}
 .hero p{font-size:1.1rem;color:var(--gray);margin-bottom:2rem}
 .hero-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 
@@ -193,8 +193,9 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
 
 <section class="hero" id="inicio">
   <div class="hero-content">
-    <div class="badge-hero"><i class="ph ph-heart-fill"></i> Juntos na luta contra o câncer</div>
-    <h1>Acolhendo e transformando vidas através do <span>Amor</span></h1>
+    <div class="badge-hero"><i class="ph ph-heart-fill"></i> <span data-k="hero.badge">Juntos na luta contra o câncer</span></div>
+    <h1><span data-k="hero.titulo_antes">Acolhendo e transformando vidas através do</span> <span data-k="hero.destaque">Amor</span></h1>
+    <p data-k="hero.texto">Associação do Amor em Apoio às Pessoas com Câncer. Acolhimento, campanhas, transparência e solidariedade em Araxá e região.</p>
     <p>A Associação do Amor oferece acolhimento, assistência e solidariedade a pessoas com câncer e suas famílias em Araxá e região.</p>
     <div class="hero-actions">
       <a href="/doar" data-route="/doar" class="btn btn-primary"><i class="ph ph-hand-heart"></i> Quero ajudar</a>
@@ -207,14 +208,14 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
   <div class="container">
     <div class="section-header">
       <span class="section-tag">Nossa missão</span>
-      <h2>O que fazemos pelos assistidos</h2>
-      <p>Fundada em 07/07/2014, a Associação do Amor atua no alívio de necessidades básicas durante o tratamento oncológico.</p>
+      <h2 data-k="sobre.titulo">O que fazemos pelos assistidos</h2>
+      <p data-k="sobre.texto">Fundada em 07/07/2014, a Associação do Amor atua no alívio de necessidades básicas durante o tratamento oncológico.</p>
     </div>
     <div class="about-grid">
-      <div class="about-card"><i class="ph ph-first-aid-kit"></i><h3>Farmacinha do Amor</h3><p>Campanha Remédio Aberto: recebemos medicamentos abertos ou fechados, dentro da validade. Farmacêutico responsável: Silvio Tavares (voluntário).</p></div>
-      <div class="about-card"><i class="ph ph-basket"></i><h3>Segurança alimentar</h3><p>Distribuição de cestas básicas, leite e itens de higiene para famílias em tratamento.</p></div>
-      <div class="about-card"><i class="ph ph-palette"></i><h3>Artererapia e atividades</h3><p>Artererapia (terça sim, terça não) com a professora Izabhel Rufino, artesanato e canto.</p></div>
-      <div class="about-card"><i class="ph ph-house-line"></i><h3>Casa do Amor</h3><p>Espaço de apoio em Araxá/MG, na Rua Ângela Marques Torres, 100 – Centro.</p></div>
+      <div class="about-card"><i class="ph ph-first-aid-kit"></i><h3 data-k="sobre.cards.0.titulo">Farmacinha do Amor</h3><p data-k="sobre.cards.0.texto">Campanha Remédio Aberto: recebemos medicamentos abertos ou fechados, dentro da validade. Farmacêutico responsável: Silvio Tavares (voluntário).</p></div>
+      <div class="about-card"><i class="ph ph-basket"></i><h3 data-k="sobre.cards.1.titulo">Segurança alimentar</h3><p data-k="sobre.cards.1.texto">Distribuição de cestas básicas, leite e itens de higiene para famílias em tratamento.</p></div>
+      <div class="about-card"><i class="ph ph-palette"></i><h3 data-k="sobre.cards.2.titulo">Artererapia e atividades</h3><p data-k="sobre.cards.2.texto">Artererapia (terça sim, terça não) com a professora Izabhel Rufino, artesanato e canto.</p></div>
+      <div class="about-card"><i class="ph ph-house-line"></i><h3 data-k="sobre.cards.3.titulo">Casa do Amor</h3><p data-k="sobre.cards.3.texto">Espaço de apoio em Araxá/MG, na Rua Ângela Marques Torres, 100 – Centro.</p></div>
     </div>
   </div>
 </section>
@@ -236,13 +237,13 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
         </div>
         <div class="tampinhas-copy">
           <span class="badge">📺 Reportagem MGTV</span>
-          <h3>Campanha das Tampinhas</h3>
-          <p>O que muita gente joga no lixo faz a diferença na vida de quem está em tratamento. A associação arrecada tampinhas, vende para reciclagem e transforma o valor em suplementos alimentares.</p>
+          <h3 data-k="tampinhas.titulo">Campanha das Tampinhas</h3>
+          <p data-k="tampinhas.texto">O que muita gente joga no lixo faz a diferença na vida de quem está em tratamento. A associação arrecada tampinhas, vende para reciclagem e transforma o valor em suplementos alimentares.</p>
           <div class="tampinhas-stats">
-            <div><strong>9 toneladas</strong><span>já arrecadadas</span></div>
-            <div><strong>174</strong><span>pacientes atendidos</span></div>
+            <div><strong data-k="tampinhas.stat1">9 toneladas</strong><span data-k="tampinhas.stat1_label">já arrecadadas</span></div>
+            <div><strong data-k="tampinhas.stat2">174</strong><span data-k="tampinhas.stat2_label">pacientes atendidos</span></div>
           </div>
-          <p class="hint">Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG.</p>
+          <p class="hint" data-k="tampinhas.hint">Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG.</p>
         </div>
       </div>
     </div>
@@ -256,13 +257,13 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
         </div>
         <div class="tampinhas-copy">
           <span class="badge">Reportagem MGTV</span>
-          <h3>Campanha Remédio Aberto</h3>
-          <p>Recebemos doações de medicamentos abertos ou fechados, dentro da validade, para a Farmacinha do Amor. Em vez de descartar, doe: o remédio passa por triagem e é repassado com prescrição médica.</p>
+          <h3 data-k="remedio.titulo">Campanha Remédio Aberto</h3>
+          <p data-k="remedio.texto">Recebemos doações de medicamentos abertos ou fechados, dentro da validade, para a Farmacinha do Amor. Em vez de descartar, doe: o remédio passa por triagem e é repassado com prescrição médica.</p>
           <div class="tampinhas-stats">
-            <div><strong>Farmacinha do Amor</strong><span>farmácia solidária</span></div>
-            <div><strong>Silvio Tavares</strong><span>farmacêutico voluntário</span></div>
+            <div><strong data-k="remedio.stat1">Farmacinha do Amor</strong><span data-k="remedio.stat1_label">farmácia solidária</span></div>
+            <div><strong data-k="remedio.stat2">Silvio Tavares</strong><span data-k="remedio.stat2_label">farmacêutico voluntário</span></div>
           </div>
-          <p class="hint">Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG. Ou ligue (34) 3661-5049.</p>
+          <p class="hint" data-k="remedio.hint">Entregue na Casa do Amor — Rua Ângela Marques Torres, 100 · Centro · Araxá/MG. Ou ligue (34) 3661-5049.</p>
         </div>
       </div>
     </div>
@@ -307,12 +308,12 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
     <div class="osc-box">
       <h3>Identificação da OSC</h3>
       <div class="osc-grid">
-        <div class="osc-item"><span>Nome</span><strong>Associação do Amor em Apoio às Pessoas com Câncer</strong></div>
-        <div class="osc-item"><span>Nome fantasia</span><strong>Associação do Amor</strong></div>
-        <div class="osc-item"><span>CNPJ</span><strong>20.977.541/0001-81</strong></div>
-        <div class="osc-item"><span>Fundação</span><strong>07/07/2014</strong></div>
-        <div class="osc-item"><span>Presidente</span><strong>Lúcia Helena Aparecida</strong></div>
-        <div class="osc-item"><span>Endereço</span><strong>Rua Ângela Marques Torres, 100 – Centro – Araxá/MG – CEP 38183-189</strong></div>
+        <div class="osc-item"><span>Nome</span><strong data-k="osc.nome">Associação do Amor em Apoio às Pessoas com Câncer</strong></div>
+        <div class="osc-item"><span>Nome fantasia</span><strong data-k="osc.fantasia">Associação do Amor</strong></div>
+        <div class="osc-item"><span>CNPJ</span><strong data-k="osc.cnpj">20.977.541/0001-81</strong></div>
+        <div class="osc-item"><span>Fundação</span><strong data-k="osc.fundacao">07/07/2014</strong></div>
+        <div class="osc-item"><span>Presidente</span><strong data-k="osc.presidente">Lúcia Helena Aparecida</strong></div>
+        <div class="osc-item"><span>Endereço</span><strong data-k="osc.endereco">Rua Ângela Marques Torres, 100 – Centro – Araxá/MG – CEP 38183-189</strong></div>
       </div>
     </div>
 
@@ -379,13 +380,13 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
     <div class="transparency-card emenda-card">
       <div class="transparency-header">
         <h3><i class="ph ph-bank"></i> Bloco específico de emenda parlamentar</h3>
-        <span class="status-badge" style="background:#fff;color:#c2185b">Aguardando dados</span>
+        <span class="status-badge" style="background:#fff;color:#c2185b" data-k="emenda.status">Aguardando dados</span>
       </div>
       <div class="transparency-body">
         <table class="info-table">
-          <tr><th>Parlamentar autor(a)</th><td>Aguardando dados (quando houver emenda parlamentar)</td></tr>
-          <tr><th>Modalidade</th><td>Individual / Bancada / Comissão</td></tr>
-          <tr><th>Valor da emenda</th><td>R$ —</td></tr>
+          <tr><th>Parlamentar autor(a)</th><td data-k="emenda.parlamentar">Aguardando dados (quando houver emenda parlamentar)</td></tr>
+          <tr><th>Modalidade</th><td data-k="emenda.modalidade">Individual / Bancada / Comissão</td></tr>
+          <tr><th>Valor da emenda</th><td data-k="emenda.valor">R$ —</td></tr>
         </table>
         <p style="color:var(--gray);font-size:.9rem;margin:0">Bloco obrigatório e destacado conforme padrão MINC/SEC 2026. As parcerias acima são Termos de Fomento com a Prefeitura de Araxá.</p>
       </div>
@@ -413,8 +414,8 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
         <div class="donation-info">
           <h3>Faça parte dessa corrente de amor</h3>
           <p>Sua doação se transforma em alimentação, medicação e acolhimento para quem enfrenta o câncer.</p>
-          <div class="pix-box"><strong>Chave PIX (CNPJ)</strong><code>20.977.541/0001-81</code></div>
-          <div class="pix-box"><strong>Razão social</strong><span>Associação do Amor em Apoio às Pessoas com Câncer</span></div>
+          <div class="pix-box"><strong>Chave PIX (CNPJ)</strong><code data-k="pix.chave">20.977.541/0001-81</code></div>
+          <div class="pix-box"><strong>Razão social</strong><span data-k="pix.nome">Associação do Amor em Apoio às Pessoas com Câncer</span></div>
           <button class="btn btn-primary" type="button" id="copyPix"><i class="ph ph-copy"></i> Copiar chave PIX</button>
           <p style="font-size:.9rem;margin-top:1.15rem;color:#94a3b8"><i class="ph ph-map-pin"></i> Rua Ângela Marques Torres, 100 – Centro – Araxá/MG</p>
         </div>
@@ -438,19 +439,19 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
       <div class="contact-card">
         <i class="ph ph-whatsapp-logo"></i>
         <h3>WhatsApp</h3>
-        <a href="https://wa.me/5534988830559" target="_blank" rel="noopener">(34) 98883-0559</a>
+        <a href="https://wa.me/5534988830559" target="_blank" rel="noopener" data-k="contato.whatsapp">(34) 98883-0559</a>
         <p>Doações, apoio e voluntariado</p>
       </div>
       <div class="contact-card">
         <i class="ph ph-envelope-simple"></i>
         <h3>E-mail</h3>
-        <a href="mailto:gestao@associacaodoamor.com.br">gestao@associacaodoamor.com.br</a>
+        <a href="mailto:gestao@associacaodoamor.com.br" data-k="contato.email">gestao@associacaodoamor.com.br</a>
         <p>Atendimento institucional</p>
       </div>
       <div class="contact-card">
         <i class="ph ph-map-pin"></i>
         <h3>Endereço</h3>
-        <p>Rua Ângela Marques Torres, 100<br>Centro – Araxá/MG<br>CEP 38183-189</p>
+        <p><span data-k="contato.endereco_l1">Rua Ângela Marques Torres, 100</span><br><span data-k="contato.endereco_l2">Centro – Araxá/MG</span><br><span data-k="contato.endereco_l3">CEP 38183-189</span></p>
       </div>
     </div>
   </div>
@@ -539,7 +540,8 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
     var copyBtn = document.getElementById('copyPix');
     if(copyBtn){
       copyBtn.addEventListener('click', function(){
-        var key = '20977541000181';
+        var key = (document.querySelector('#doar code') && document.querySelector('#doar code').textContent.trim()) || '20977541000181';
+        key = key.replace(/\D/g,'') || '20977541000181';
         if(navigator.clipboard && navigator.clipboard.writeText){
           navigator.clipboard.writeText(key).then(function(){
             copyBtn.innerHTML = '<i class="ph ph-check"></i> Copiado!';
@@ -553,5 +555,6 @@ footer{background:#0f172a;color:#94a3b8;padding:3.25rem 1.5rem 1.75rem}
   });
 })();
 </script>
+<script src="js/aplicar-conteudo.js"></script>
 </body>
 </html>
